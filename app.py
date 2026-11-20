@@ -757,12 +757,11 @@ with tab4:
             e1, e2, e3 = st.columns(3)
             e_cliente = e1.text_input("Cliente", value=str(fila["cliente"]))
             e_quintales = e2.number_input(
-                "Sacos / quintales",
-                min_value=0.5,
-                max_value=500.0,
-                value=float(fila["quintales"]),
-                step=0.5,
-            )
+    "Sacos / quintales",
+    min_value=0.0,
+    value=float(row["quintales"]),
+    step=0.5,
+)
             e_monto = e3.number_input(
                 "Monto total (₡)", min_value=0.0, value=float(fila["monto"]), step=500.0
             )
