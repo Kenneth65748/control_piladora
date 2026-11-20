@@ -568,13 +568,29 @@ with tab1:
     with st.form("form_pilada", clear_on_submit=True):
         c1, c2 = st.columns(2)
         cliente = c1.text_input("Nombre de la persona *")
-        quintales = c2.number_input(
-            "Cantidad de sacos / quintales *",
-            min_value=0.5,
-            max_value=500.0,
-            value=1.0,
-            step=0.5,
+        unidad = c2.radio(
+            "Medida *",
+            ["Quintales", "Latas (3 = 1 qq)"],
+            horizontal=True,
         )
+        if unidad == "Quintales":
+            quintales = c2.number_input(
+                "Cantidad de sacos / quintales *",
+                min_value=0.0,
+                max_value=500.0,
+                value=1.0,
+                step=0.5,
+            )
+        else:
+            latas = c2.number_input(
+                "Cantidad de latas *",
+                min_value=0.0,
+                max_value=1500.0,
+                value=3.0,
+                step=0.5,
+            )
+            quintales = round(latas / 3, 4)
+            c2.caption(f"Equivale a: {quintales:.2f} qq")
 
         c3, c4 = st.columns(2)
         monto = c3.number_input(
