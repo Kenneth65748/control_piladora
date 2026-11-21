@@ -759,7 +759,7 @@ with tab4:
             e_quintales = e2.number_input(
     "Sacos / quintales",
     min_value=0.0,
-    value=float(row["quintales"]),
+    value=float(fila["quintales"]),
     step=0.5,
 )
             e_monto = e3.number_input(
