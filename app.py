@@ -4,7 +4,7 @@ import sqlite3
 import libsql
 import pandas as pd
 import streamlit as st
-
+import base64
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_NAME = os.path.join(BASE_DIR, "piladora_arroz.db")
 META_ACEITE = 30  # Quintales / sacos para cambio de aceite
