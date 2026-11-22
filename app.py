@@ -434,10 +434,23 @@ def obtener_cambios_aceite() -> pd.DataFrame:
 
 
 st.set_page_config(
-    page_title="Control Piladora de Arroz",
-    page_icon="logo_piladora.webp",
-    layout="wide",
+    page_title="Control Piladora de Arroz", page_icon="logo.png", layout="wide"
 )
+
+
+def cargar_icono_png(ruta_png: str):
+  with open(ruta_png, "rb") as archivo:
+    b64 = base64.b64encode(archivo.read()).decode("utf-8")
+  st.markdown(
+      f"""
+        <link rel="icon" type="image/png" href="data:image/png;base64,{b64}">
+        <link rel="apple-touch-icon" href="data:image/png;base64,{b64}">
+        """,
+      unsafe_allow_html=True,
+  )
+
+
+cargar_icono_png("logo.png")
 init_db()
 
 # --- Fondo sutil estilo grano de arroz (sin afectar visibilidad ni números) ---
